@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz Dysfonction Érectile</title>
+  <title>Vitality & Hydration Quiz</title>
   <style>
     body {
       background-color: #000;
@@ -60,61 +60,79 @@
     #checkout-btn:hover {
       background-color: #ff1a1a;
     }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+    footer a {
+      color: #ff3c3c;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 
-  <h2>Répondez honnêtement :</h2>
+  <h2>Quick Vitality Check:</h2>
 
   <div class="quiz-step active" id="step1">
-    <p>Quel âge avez-vous ?</p>
-    <button class="option" onclick="nextStep()">Moins de 30 ans</button>
-    <button class="option" onclick="nextStep()">30 à 50 ans</button>
-    <button class="option" onclick="nextStep()">Plus de 50 ans</button>
+    <p>How old are you?</p>
+    <button class="option" onclick="nextStep()">Under 30 years old</button>
+    <button class="option" onclick="nextStep()">30 to 50 years old</button>
+    <button class="option" onclick="nextStep()">Over 50 years old</button>
   </div>
 
   <div class="quiz-step" id="step2">
-    <p>Avez-vous actuellement un(e) partenaire ?</p>
-    <button class="option" onclick="nextStep()">Oui</button>
-    <button class="option" onclick="nextStep()">Non</button>
+    <p>Do you usually stay well hydrated during the day?</p>
+    <button class="option" onclick="nextStep()">Yes</button>
+    <button class="option" onclick="nextStep()">Not really</button>
   </div>
 
   <div class="quiz-step" id="step3">
-    <p>Comment sont vos performances au lit récemment ?</p>
-    <button class="option" onclick="nextStep()">Elles se sont dégradées</button>
-    <button class="option" onclick="nextStep()">Normales</button>
-    <button class="option" onclick="nextStep()">Excellentes</button>
+    <p>How would you describe your current energy levels?</p>
+    <button class="option" onclick="nextStep()">Low</button>
+    <button class="option" onclick="nextStep()">Average</button>
+    <button class="option" onclick="nextStep()">High</button>
   </div>
 
   <div class="quiz-step" id="step4">
-    <p>Combien de temps tenez-vous pendant les rapports sexuels ?</p>
-    <button class="option" onclick="nextStep()">Moins de 2 minutes</button>
-    <button class="option" onclick="nextStep()">2 à 10 minutes</button>
-    <button class="option" onclick="nextStep()">Plus de 10 minutes</button>
+    <p>Do you often feel tired or mentally foggy?</p>
+    <button class="option" onclick="nextStep()">Yes</button>
+    <button class="option" onclick="nextStep()">Sometimes</button>
+    <button class="option" onclick="nextStep()">No</button>
   </div>
 
   <div class="quiz-step" id="step5">
-    <p>Ressentez-vous un manque de désir ou d’énergie ?</p>
-    <button class="option" onclick="nextStep()">Oui</button>
-    <button class="option" onclick="nextStep()">Parfois</button>
-    <button class="option" onclick="nextStep()">Non</button>
+    <p>How balanced is your daily nutrition?</p>
+    <button class="option" onclick="nextStep()">I often skip meals</button>
+    <button class="option" onclick="nextStep()">Fairly balanced</button>
+    <button class="option" onclick="nextStep()">Very balanced</button>
   </div>
 
   <div class="quiz-step" id="step6">
-    <p>Votre érection reste-t-elle ferme tout au long de l’acte ?</p>
-    <button class="option" onclick="showResult()">Non</button>
-    <button class="option" onclick="showResult()">Elle faiblit</button>
-    <button class="option" onclick="showResult()">Oui</button>
+    <p>Would you like to learn a natural protocol that supports hydration, energy, and overall vitality?</p>
+    <button class="option" onclick="showResult()">Yes</button>
+    <button class="option" onclick="showResult()">Maybe</button>
   </div>
 
   <div id="result">
-    <h2>Résultat</h2>
-    <p>🔴 Selon vos réponses, vous présentez des signes évidents de dysfonction érectile.</p>
-    <p>Mais ne vous inquiétez pas, car <strong>ce protocole 100% naturel</strong> a aidé des milliers d’hommes à retrouver des érections puissantes, du désir sexuel et des performances explosives… même après des années de frustration.</p>
-    <p>🍃 Sans médicaments, sans effets secondaires, et avec des résultats visibles dès la première semaine pour beaucoup.</p>
-    <p>✔️ Plus de fermeté, plus d’endurance, plus de plaisir.</p>
-    <button id="checkout-btn" onclick="irParaCheckout()">Obtenez-le maintenant</button>
+    <h2>Your Personalized Recommendation</h2>
+    <p>🌿 Based on your answers, you could benefit from learning more about the <strong>Celtic Mineral Hydration Protocol</strong> — a natural educational guide that helps support vitality, energy, and balance through proper mineral intake and hydration habits.</p>
+    <p>💧 This guide is <strong>informational only</strong> and focuses on lifestyle and nutrition insights that many people find valuable for overall wellness.</p>
+    <p>✨ Learn how to stay naturally energized and hydrated every day.</p>
+    <button id="checkout-btn" onclick="goToCheckout()">Access the Guide</button>
   </div>
+
+  <footer>
+    <p><strong>Disclaimer:</strong> This product is for informational purposes only and does not replace professional medical advice. Consult a qualified healthcare provider before making any health-related decisions.</p>
+    <p>Individual results may vary and are not guaranteed.</p>
+    <p>
+      <a href="https://mund.mennitric.online/terms">Terms of Use</a> |
+      <a href="https://mund.mennitric.online/privacy">Privacy Policy</a> |
+      <a href="https://mund.mennitric.online/refund">Refund Policy</a>
+    </p>
+  </footer>
 
   <script>
     let currentStep = 1;
@@ -132,11 +150,10 @@
       document.getElementById("result").style.display = "block";
     }
 
-    function irParaCheckout() {
+    function goToCheckout() {
       window.location.href = "https://pay.mundpay.com/01995457-1b9e-71a8-8745-e040aaa2003e?ref=";
     }
 
-    // Seleção visual
     const options = document.querySelectorAll("button.option");
     options.forEach(btn => {
       btn.addEventListener("click", () => {
