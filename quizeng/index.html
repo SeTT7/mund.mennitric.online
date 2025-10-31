@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Erectile Dysfunction Quiz</title>
+  <title>Vitality & Hydration Quiz</title>
   <style>
     body {
       background-color: #000;
@@ -60,11 +60,21 @@
     #checkout-btn:hover {
       background-color: #ff1a1a;
     }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+    footer a {
+      color: #ff3c3c;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
 
-  <h2>Answer honestly:</h2>
+  <h2>Quick Vitality Check:</h2>
 
   <div class="quiz-step active" id="step1">
     <p>How old are you?</p>
@@ -74,47 +84,55 @@
   </div>
 
   <div class="quiz-step" id="step2">
-    <p>Do you currently have a partner?</p>
+    <p>Do you usually stay well hydrated during the day?</p>
     <button class="option" onclick="nextStep()">Yes</button>
-    <button class="option" onclick="nextStep()">No</button>
+    <button class="option" onclick="nextStep()">Not really</button>
   </div>
 
   <div class="quiz-step" id="step3">
-    <p>How have your performances in bed been lately?</p>
-    <button class="option" onclick="nextStep()">They’ve gotten worse</button>
-    <button class="option" onclick="nextStep()">Normal</button>
-    <button class="option" onclick="nextStep()">Excellent</button>
+    <p>How would you describe your current energy levels?</p>
+    <button class="option" onclick="nextStep()">Low</button>
+    <button class="option" onclick="nextStep()">Average</button>
+    <button class="option" onclick="nextStep()">High</button>
   </div>
 
   <div class="quiz-step" id="step4">
-    <p>How long do you last during intercourse?</p>
-    <button class="option" onclick="nextStep()">Less than 2 minutes</button>
-    <button class="option" onclick="nextStep()">2 to 10 minutes</button>
-    <button class="option" onclick="nextStep()">More than 10 minutes</button>
-  </div>
-
-  <div class="quiz-step" id="step5">
-    <p>Do you feel a lack of desire or energy?</p>
+    <p>Do you often feel tired or mentally foggy?</p>
     <button class="option" onclick="nextStep()">Yes</button>
     <button class="option" onclick="nextStep()">Sometimes</button>
     <button class="option" onclick="nextStep()">No</button>
   </div>
 
+  <div class="quiz-step" id="step5">
+    <p>How balanced is your daily nutrition?</p>
+    <button class="option" onclick="nextStep()">I often skip meals</button>
+    <button class="option" onclick="nextStep()">Fairly balanced</button>
+    <button class="option" onclick="nextStep()">Very balanced</button>
+  </div>
+
   <div class="quiz-step" id="step6">
-    <p>Does your erection stay firm throughout the act?</p>
-    <button class="option" onclick="showResult()">No</button>
-    <button class="option" onclick="showResult()">It weakens</button>
+    <p>Would you like to learn a natural protocol that supports hydration, energy, and overall vitality?</p>
     <button class="option" onclick="showResult()">Yes</button>
+    <button class="option" onclick="showResult()">Maybe</button>
   </div>
 
   <div id="result">
-    <h2>Result</h2>
-    <p>🔴 Based on your answers, you show clear signs of erectile dysfunction.</p>
-    <p>But don’t worry, because <strong>this 100% natural protocol</strong> has helped thousands of men regain strong erections, sexual desire, and explosive performance… even after years of frustration.</p>
-    <p>🍃 No drugs, no side effects, and with visible results for many men as early as the first week.</p>
-    <p>✔️ More firmness, more stamina, more pleasure.</p>
-    <button id="checkout-btn" onclick="goToCheckout()">Get it now</button>
+    <h2>Your Personalized Recommendation</h2>
+    <p>🌿 Based on your answers, you could benefit from learning more about the <strong>Celtic Mineral Hydration Protocol</strong> — a natural educational guide that helps support vitality, energy, and balance through proper mineral intake and hydration habits.</p>
+    <p>💧 This guide is <strong>informational only</strong> and focuses on lifestyle and nutrition insights that many people find valuable for overall wellness.</p>
+    <p>✨ Learn how to stay naturally energized and hydrated every day.</p>
+    <button id="checkout-btn" onclick="goToCheckout()">Access the Guide</button>
   </div>
+
+  <footer>
+    <p><strong>Disclaimer:</strong> This product is for informational purposes only and does not replace professional medical advice. Consult a qualified healthcare provider before making any health-related decisions.</p>
+    <p>Individual results may vary and are not guaranteed.</p>
+    <p>
+      <a href="https://mund.mennitric.online/terms">Terms of Use</a> |
+      <a href="https://mund.mennitric.online/privacy">Privacy Policy</a> |
+      <a href="https://mund.mennitric.online/refund">Refund Policy</a>
+    </p>
+  </footer>
 
   <script>
     let currentStep = 1;
@@ -136,7 +154,6 @@
       window.location.href = "https://pay.mundpay.com/01995457-1b9e-71a8-8745-e040aaa2003e?ref=";
     }
 
-    // Visual selection
     const options = document.querySelectorAll("button.option");
     options.forEach(btn => {
       btn.addEventListener("click", () => {
