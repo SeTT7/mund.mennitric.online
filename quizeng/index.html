@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Erectile Dysfunction Quiz</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .quiz-step {
+      display: none;
+      flex-direction: column;
+    }
+    .quiz-step.active {
+      display: flex;
+    }
+    h2 {
+      color: #ff3c3c;
+    }
+    button.option {
+      background-color: #111;
+      border: 2px solid #ff3c3c;
+      color: white;
+      padding: 15px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+    }
+    button.option:hover,
+    button.option.selected {
+      background-color: #ff3c3c;
+      color: #000;
+    }
+    #result {
+      display: none;
+      background-color: #111;
+      border: 2px solid #ff3c3c;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    #checkout-btn {
+      background-color: #ff3c3c;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    #checkout-btn:hover {
+      background-color: #ff1a1a;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Answer honestly:</h2>
+
+  <div class="quiz-step active" id="step1">
+    <p>How old are you?</p>
+    <button class="option" onclick="nextStep()">Under 30 years old</button>
+    <button class="option" onclick="nextStep()">30 to 50 years old</button>
+    <button class="option" onclick="nextStep()">Over 50 years old</button>
+  </div>
+
+  <div class="quiz-step" id="step2">
+    <p>Do you currently have a partner?</p>
+    <button class="option" onclick="nextStep()">Yes</button>
+    <button class="option" onclick="nextStep()">No</button>
+  </div>
+
+  <div class="quiz-step" id="step3">
+    <p>How have your performances in bed been lately?</p>
+    <button class="option" onclick="nextStep()">They’ve gotten worse</button>
+    <button class="option" onclick="nextStep()">Normal</button>
+    <button class="option" onclick="nextStep()">Excellent</button>
+  </div>
+
+  <div class="quiz-step" id="step4">
+    <p>How long do you last during intercourse?</p>
+    <button class="option" onclick="nextStep()">Less than 2 minutes</button>
+    <button class="option" onclick="nextStep()">2 to 10 minutes</button>
+    <button class="option" onclick="nextStep()">More than 10 minutes</button>
+  </div>
+
+  <div class="quiz-step" id="step5">
+    <p>Do you feel a lack of desire or energy?</p>
+    <button class="option" onclick="nextStep()">Yes</button>
+    <button class="option" onclick="nextStep()">Sometimes</button>
+    <button class="option" onclick="nextStep()">No</button>
+  </div>
+
+  <div class="quiz-step" id="step6">
+    <p>Does your erection stay firm throughout the act?</p>
+    <button class="option" onclick="showResult()">No</button>
+    <button class="option" onclick="showResult()">It weakens</button>
+    <button class="option" onclick="showResult()">Yes</button>
+  </div>
+
+  <div id="result">
+    <h2>Result</h2>
+    <p>🔴 Based on your answers, you show clear signs of erectile dysfunction.</p>
+    <p>But don’t worry, because <strong>this 100% natural protocol</strong> has helped thousands of men regain strong erections, sexual desire, and explosive performance… even after years of frustration.</p>
+    <p>🍃 No drugs, no side effects, and with visible results for many men as early as the first week.</p>
+    <p>✔️ More firmness, more stamina, more pleasure.</p>
+    <button id="checkout-btn" onclick="goToCheckout()">Get it now</button>
+  </div>
+
+  <script>
+    let currentStep = 1;
+    function nextStep() {
+      document.getElementById("step" + currentStep).classList.remove("active");
+      currentStep++;
+      const next = document.getElementById("step" + currentStep);
+      if (next) {
+        next.classList.add("active");
+      }
+    }
+
+    function showResult() {
+      document.getElementById("step" + currentStep).classList.remove("active");
+      document.getElementById("result").style.display = "block";
+    }
+
+    function goToCheckout() {
+      window.location.href = "https://pay.mundpay.com/01995457-1b9e-71a8-8745-e040aaa2003e?ref=";
+    }
+
+    // Visual selection
+    const options = document.querySelectorAll("button.option");
+    options.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const siblings = btn.parentNode.querySelectorAll("button.option");
+        siblings.forEach(sib => sib.classList.remove("selected"));
+        btn.classList.add("selected");
+      });
+    });
+  </script>
+</body>
+</html>
