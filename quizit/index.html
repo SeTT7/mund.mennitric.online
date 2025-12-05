@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz Vitalità e Idratazione</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .quiz-step {
+      display: none;
+      flex-direction: column;
+    }
+    .quiz-step.active {
+      display: flex;
+    }
+    h2 {
+      color: #ff3c3c;
+    }
+    button.option {
+      background-color: #111;
+      border: 2px solid #ff3c3c;
+      color: white;
+      padding: 15px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+    }
+    button.option:hover,
+    button.option.selected {
+      background-color: #ff3c3c;
+      color: #000;
+    }
+    #result {
+      display: none;
+      background-color: #111;
+      border: 2px solid #ff3c3c;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    #checkout-btn {
+      background-color: #ff3c3c;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    #checkout-btn:hover {
+      background-color: #ff1a1a;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+    footer a {
+      color: #ff3c3c;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Controllo Rapido della Vitalità:</h2>
+
+  <div class="quiz-step active" id="step1">
+    <p>Quanti anni hai?</p>
+    <button class="option" onclick="nextStep()">Meno di 30 anni</button>
+    <button class="option" onclick="nextStep()">Da 30 a 50 anni</button>
+    <button class="option" onclick="nextStep()">Più di 50 anni</button>
+  </div>
+
+  <div class="quiz-step" id="step2">
+    <p>Di solito rimani ben idratato durante il giorno?</p>
+    <button class="option" onclick="nextStep()">Sì</button>
+    <button class="option" onclick="nextStep()">Non proprio</button>
+  </div>
+
+  <div class="quiz-step" id="step3">
+    <p>Come descriveresti i tuoi livelli di energia attuali?</p>
+    <button class="option" onclick="nextStep()">Bassi</button>
+    <button class="option" onclick="nextStep()">Nella media</button>
+    <button class="option" onclick="nextStep()">Alti</button>
+  </div>
+
+  <div class="quiz-step" id="step4">
+    <p>Ti senti spesso stanco o mentalmente annebbiato?</p>
+    <button class="option" onclick="nextStep()">Sì</button>
+    <button class="option" onclick="nextStep()">A volte</button>
+    <button class="option" onclick="nextStep()">No</button>
+  </div>
+
+  <div class="quiz-step" id="step5">
+    <p>Quanto è equilibrata la tua alimentazione quotidiana?</p>
+    <button class="option" onclick="nextStep()">Salto spesso i pasti</button>
+    <button class="option" onclick="nextStep()">Abbastanza equilibrata</button>
+    <button class="option" onclick="nextStep()">Molto equilibrata</button>
+  </div>
+
+  <div class="quiz-step" id="step6">
+    <p>Ti piacerebbe conoscere un protocollo naturale che supporta idratazione, energia e vitalità generale?</p>
+    <button class="option" onclick="showResult()">Sì</button>
+    <button class="option" onclick="showResult()">Forse</button>
+  </div>
+
+  <div id="result">
+    <h2>La Tua Raccomandazione Personalizzata</h2>
+    <p>🌿 In base alle tue risposte, potresti trarre beneficio dal conoscere il <strong>Celtic Mineral Hydration Protocol</strong> — una guida educativa naturale che aiuta a supportare vitalità, energia ed equilibrio attraverso un corretto apporto di minerali e buone abitudini di idratazione.</p>
+    <p>💧 Questa guida è <strong>puramente informativa</strong> e si concentra su spunti di stile di vita e nutrizione che molte persone trovano utili per il benessere generale.</p>
+    <p>✨ Scopri come rimanere naturalmente energico e idratato ogni giorno.</p>
+    <button id="checkout-btn" onclick="goToCheckout()">Accedi alla Guida</button>
+  </div>
+
+  <footer>
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> Questo sito web e i suoi contenuti sono forniti da Infosetads esclusivamente a scopo informativo ed educativo.  
+    Mundpay, Meta (Facebook), Google e altre terze parti <strong>non sono responsabili</strong> per eventuali risultati, interpretazioni o azioni basate sui contenuti qui presentati.  
+    Nulla in questa pagina costituisce consulenza medica, finanziaria o professionale.
+  </div>
+  <p>
+    <a href="https://mund.mennitric.online/terms">Termini di Utilizzo</a> |
+    <a href="https://mund.mennitric.online/privacy">Informativa sulla Privacy</a> |
+    <a href="https://mund.mennitric.online/refund">Politica di Rimborso</a> |
+    <a href="https://mund.mennitric.online/support">Supporto</a>
+  </p>
+  <p>
+    <strong>Infosetads</strong> — CNPJ: 58.441.998/0001-40<br>
+    Salvador, Bahia, Brasile<br>
+    Supporto: <a href="mailto:infosetads1@gmail.com">infosetads1@gmail.com</a>
+  </p>
+</footer>
+
+  <script>
+    let currentStep = 1;
+    function nextStep() {
+      document.getElementById("step" + currentStep).classList.remove("active");
+      currentStep++;
+      const next = document.getElementById("step" + currentStep);
+      if (next) {
+        next.classList.add("active");
+      }
+    }
+
+    function showResult() {
+      document.getElementById("step" + currentStep).classList.remove("active");
+      document.getElementById("result").style.display = "block";
+    }
+
+    function goToCheckout() {
+      window.location.href = "";
+    }
+
+    const options = document.querySelectorAll("button.option");
+    options.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const siblings = btn.parentNode.querySelectorAll("button.option");
+        siblings.forEach(sib => sib.classList.remove("selected"));
+        btn.classList.add("selected");
+      });
+    });
+  </script>
+</body>
+</html>
