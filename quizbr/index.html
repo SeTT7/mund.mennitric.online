@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Quiz de Vitalidade & Hidratação</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 500px;
+      margin: auto;
+    }
+    .quiz-step {
+      display: none;
+      flex-direction: column;
+    }
+    .quiz-step.active {
+      display: flex;
+    }
+    h2 {
+      color: #ff3c3c;
+    }
+    button.option {
+      background-color: #111;
+      border: 2px solid #ff3c3c;
+      color: white;
+      padding: 15px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 8px;
+    }
+    button.option:hover,
+    button.option.selected {
+      background-color: #ff3c3c;
+      color: #000;
+    }
+    #result {
+      display: none;
+      background-color: #111;
+      border: 2px solid #ff3c3c;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 30px;
+    }
+    #checkout-btn {
+      background-color: #ff3c3c;
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s ease;
+    }
+    #checkout-btn:hover {
+      background-color: #ff1a1a;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+    footer a {
+      color: #ff3c3c;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Verificação Rápida de Vitalidade:</h2>
+
+  <div class="quiz-step active" id="step1">
+    <p>Qual a sua idade?</p>
+    <button class="option" onclick="nextStep()">Menos de 30 anos</button>
+    <button class="option" onclick="nextStep()">Entre 30 e 50 anos</button>
+    <button class="option" onclick="nextStep()">Mais de 50 anos</button>
+  </div>
+
+  <div class="quiz-step" id="step2">
+    <p>Você costuma se manter bem hidratado ao longo do dia?</p>
+    <button class="option" onclick="nextStep()">Sim</button>
+    <button class="option" onclick="nextStep()">Não muito</button>
+  </div>
+
+  <div class="quiz-step" id="step3">
+    <p>Como você descreveria seu nível de energia atualmente?</p>
+    <button class="option" onclick="nextStep()">Baixo</button>
+    <button class="option" onclick="nextStep()">Médio</button>
+    <button class="option" onclick="nextStep()">Alto</button>
+  </div>
+
+  <div class="quiz-step" id="step4">
+    <p>Você frequentemente se sente cansado ou com mente confusa?</p>
+    <button class="option" onclick="nextStep()">Sim</button>
+    <button class="option" onclick="nextStep()">Às vezes</button>
+    <button class="option" onclick="nextStep()">Não</button>
+  </div>
+
+  <div class="quiz-step" id="step5">
+    <p>Quão equilibrada é a sua alimentação diária?</p>
+    <button class="option" onclick="nextStep()">Costumo pular refeições</button>
+    <button class="option" onclick="nextStep()">Razoavelmente equilibrada</button>
+    <button class="option" onclick="nextStep()">Muito equilibrada</button>
+  </div>
+
+  <div class="quiz-step" id="step6">
+    <p>Você gostaria de conhecer um protocolo natural que apoia hidratação, energia e vitalidade geral?</p>
+    <button class="option" onclick="showResult()">Sim</button>
+    <button class="option" onclick="showResult()">Talvez</button>
+  </div>
+
+  <div id="result">
+    <h2>Sua Recomendação Personalizada</h2>
+    <p>🌿 Com base em suas respostas, você pode se beneficiar ao conhecer o <strong>Protocolo Celta de Hidratação Mineral</strong> — um guia educativo natural que ajuda a apoiar vitalidade, energia e equilíbrio por meio da ingestão adequada de minerais e hábitos de hidratação.</p>
+    <p>💧 Este guia é <strong>apenas informativo</strong> e foca em insights de estilo de vida e nutrição que muitas pessoas consideram valiosos para o bem-estar geral.</p>
+    <p>✨ Aprenda como se manter naturalmente energizado e hidratado todos os dias.</p>
+    <button id="checkout-btn" onclick="goToCheckout()">Acessar o Guia</button>
+  </div>
+
+  <footer>
+  <div class="disclaimer">
+    <strong>Aviso Legal:</strong> Este site e seu conteúdo são fornecidos pela Infosetads apenas para fins informativos e educacionais.  
+    Mundpay, Meta (Facebook), Google e quaisquer terceiros <strong>não são responsáveis</strong> por quaisquer resultados, interpretações ou ações baseadas no conteúdo apresentado aqui.  
+    Nada nesta página constitui aconselhamento médico, financeiro ou profissional.
+  </div>
+  <p>
+    <a href="https://mund.mennitric.online/terms">Termos de Uso</a> |
+    <a href="https://mund.mennitric.online/privacy">Política de Privacidade</a> |
+    <a href="https://mund.mennitric.online/refund">Política de Reembolso</a> |
+    <a href="https://mund.mennitric.online/support">Suporte</a>
+  </p>
+  <p>
+    <strong>Infosetads</strong> — CNPJ: 58.441.998/0001-40<br>
+    Salvador, Bahia, Brasil<br>
+    Suporte: <a href="mailto:infosetads1@gmail.com">infosetads1@gmail.com</a>
+  </p>
+</footer>
+
+  <script>
+    let currentStep = 1;
+    function nextStep() {
+      document.getElementById("step" + currentStep).classList.remove("active");
+      currentStep++;
+      const next = document.getElementById("step" + currentStep);
+      if (next) {
+        next.classList.add("active");
+      }
+    }
+
+    function showResult() {
+      document.getElementById("step" + currentStep).classList.remove("active");
+      document.getElementById("result").style.display = "block";
+    }
+
+    function goToCheckout() {
+      window.location.href = "https://pay.mycheckoutt.com/019a37eb-599f-7064-baa2-eca84332aafb?ref=";
+    }
+
+    const options = document.querySelectorAll("button.option");
+    options.forEach(btn => {
+      btn.addEventListener("click", () => {
+        const siblings = btn.parentNode.querySelectorAll("button.option");
+        siblings.forEach(sib => sib.classList.remove("selected"));
+        btn.classList.add("selected");
+      });
+    });
+  </script>
+</body>
+</html>
