@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Quiz Disfunción Eréctil</title>
+  <title>Faith & Stewardship Reflection</title>
   <style>
     body {
       background-color: #000;
@@ -13,23 +13,19 @@
       max-width: 500px;
       margin: auto;
     }
-
     .quiz-step {
       display: none;
       flex-direction: column;
     }
-
     .quiz-step.active {
       display: flex;
     }
-
     h2 {
-      color: #ff3c3c;
+      color: #d4af37;
     }
-
     button.option {
       background-color: #111;
-      border: 2px solid #ff3c3c;
+      border: 2px solid #d4af37;
       color: white;
       padding: 15px;
       margin: 10px 0;
@@ -37,110 +33,131 @@
       transition: background-color 0.3s ease;
       border-radius: 8px;
     }
-
     button.option:hover,
     button.option.selected {
-      background-color: #ff3c3c;
+      background-color: #d4af37;
       color: #000;
     }
-
     #result {
       display: none;
       background-color: #111;
-      border: 2px solid #ff3c3c;
+      border: 2px solid #d4af37;
       padding: 20px;
       border-radius: 10px;
       margin-top: 30px;
     }
-
     #checkout-btn {
-      background-color: #ff3c3c;
-      color: white;
+      background-color: #d4af37;
+      color: #000;
       padding: 15px;
       border: none;
       border-radius: 8px;
       font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
       margin-top: 20px;
       transition: background-color 0.3s ease;
     }
-
     #checkout-btn:hover {
-      background-color: #ff1a1a;
+      background-color: #b8962e;
+    }
+    footer {
+      margin-top: 40px;
+      font-size: 12px;
+      color: #aaa;
+      text-align: center;
+    }
+    footer a {
+      color: #d4af37;
+      text-decoration: none;
+    }
+    .disclaimer {
+      margin-bottom: 15px;
+      line-height: 1.5;
     }
   </style>
 </head>
 <body>
 
-  <h2>Responde con sinceridad:</h2>
+  <h2>Quick Reflection: Faith & Finances</h2>
 
   <div class="quiz-step active" id="step1">
-    <p>¿Cuántos años tienes?</p>
-    <button class="option" onclick="nextStep()">Menos de 30</button>
-    <button class="option" onclick="nextStep()">30 a 50</button>
-    <button class="option" onclick="nextStep()">Más de 50</button>
+    <p>Which season of life best describes you right now?</p>
+    <button class="option" onclick="nextStep()">Young adult, building my foundation</button>
+    <button class="option" onclick="nextStep()">Midlife, balancing many responsibilities</button>
+    <button class="option" onclick="nextStep()">Mature season, reflecting on legacy</button>
   </div>
 
   <div class="quiz-step" id="step2">
-    <p>¿Tienes pareja actualmente?</p>
-    <button class="option" onclick="nextStep()">Sí</button>
-    <button class="option" onclick="nextStep()">No</button>
+    <p>How often do you pray or reflect about your finances?</p>
+    <button class="option" onclick="nextStep()">Regularly</button>
+    <button class="option" onclick="nextStep()">Rarely</button>
   </div>
 
   <div class="quiz-step" id="step3">
-    <p>¿Cómo ha sido tu desempeño en la cama últimamente?</p>
-    <button class="option" onclick="nextStep()">Ha empeorado</button>
-    <button class="option" onclick="nextStep()">Normal</button>
-    <button class="option" onclick="nextStep()">Muy bueno</button>
+    <p>How would you describe your current peace regarding money matters?</p>
+    <button class="option" onclick="nextStep()">Often anxious</button>
+    <button class="option" onclick="nextStep()">Somewhat at peace</button>
+    <button class="option" onclick="nextStep()">At peace</button>
   </div>
 
   <div class="quiz-step" id="step4">
-    <p>¿Cuánto tiempo logras durar durante el sexo?</p>
-    <button class="option" onclick="nextStep()">Menos de 2 minutos</button>
-    <button class="option" onclick="nextStep()">2 a 10 minutos</button>
-    <button class="option" onclick="nextStep()">Más de 10 minutos</button>
+    <p>Do you feel your daily choices reflect your faith values?</p>
+    <button class="option" onclick="nextStep()">Not really</button>
+    <button class="option" onclick="nextStep()">Sometimes</button>
+    <button class="option" onclick="nextStep()">Yes, consistently</button>
   </div>
 
   <div class="quiz-step" id="step5">
-    <p>¿Sientes falta de deseo o energía?</p>
-    <button class="option" onclick="nextStep()">Sí</button>
-    <button class="option" onclick="nextStep()">A veces</button>
-    <button class="option" onclick="nextStep()">No</button>
+    <p>How familiar are you with what Scripture teaches about stewardship?</p>
+    <button class="option" onclick="nextStep()">I've barely explored it</button>
+    <button class="option" onclick="nextStep()">I know some passages</button>
+    <button class="option" onclick="nextStep()">I study it often</button>
   </div>
 
   <div class="quiz-step" id="step6">
-    <p>¿Tu erección se mantiene firme durante todo el acto?</p>
-    <button class="option" onclick="showResult()">No</button>
-    <button class="option" onclick="showResult()">Se debilita</button>
-    <button class="option" onclick="showResult()">Sí</button>
+    <p>Would you like to explore an educational guide on biblical principles of stewardship and gratitude?</p>
+    <button class="option" onclick="showResult()">Yes</button>
+    <button class="option" onclick="showResult()">Maybe</button>
   </div>
 
   <div id="result">
-    <h2>Resultado</h2>
-    <p>🔴 Según tus respuestas, estás enfrentando señales claras de disfunción eréctil.</p>
-
-    <p>
-      Pero no te preocupes, porque <strong>este protocolo 100% natural</strong> ha ayudado a miles de hombres a recuperar erecciones fuertes, deseo sexual y rendimiento explosivo... incluso después de años de frustración.
-    </p>
-
-    <p>
-      🍃 Sin medicamentos, sin efectos secundarios, y con resultados que muchos notan ya en la primera semana.
-    </p>
-
-    <p>
-      ✔️ Más firmeza, más duración, más placer.
-    </p>
-
-    <button id="checkout-btn" onclick="irParaCheckout()">Adquiere ahora</button>
+    <h2>Your Reflection Summary</h2>
+    <p>📖 Based on your answers, you may find value in exploring the <strong>Faith & Stewardship Guide</strong> — an educational resource that walks through what Scripture says about work, generosity, contentment, and wise management of what we've been given.</p>
+    <p>✝️ This guide is <strong>educational and reflective only</strong>. It does not promise financial outcomes, healing, miracles, or any specific results. It is a study resource, not a financial or spiritual prescription.</p>
+    <p>🕊️ The goal is simple: to help readers reflect on timeless principles found in passages like the Parable of the Talents, Proverbs, and the teachings of Jesus on money and the heart.</p>
+    <button id="checkout-btn" onclick="goToCheckout()">Access the Guide</button>
   </div>
+
+  <footer>
+    <div class="disclaimer">
+      <strong>Disclaimer:</strong> This website and its content are provided by Infosetads for informational and educational purposes only.
+      This is not financial advice, investment guidance, or a promise of any material, spiritual, or personal outcome.
+      The content reflects a Christian perspective on stewardship and is intended for personal study and reflection.
+      Mundpay, Meta (Facebook), Google, and any third parties are <strong>not responsible</strong> for any results, interpretations, or actions taken based on the content presented here.
+    </div>
+    <p>
+      <a href="https://mund.mennitric.online/terms">Terms of Use</a> |
+      <a href="https://mund.mennitric.online/privacy">Privacy Policy</a> |
+      <a href="https://mund.mennitric.online/refund">Refund Policy</a> |
+      <a href="https://mund.mennitric.online/support">Support</a>
+    </p>
+    <p>
+      <strong>Infosetads</strong> — CNPJ: 58.441.998/0001-40<br>
+      Salvador, Bahia, Brazil<br>
+      Support: <a href="mailto:infosetads1@gmail.com">infosetads1@gmail.com</a>
+    </p>
+  </footer>
 
   <script>
     let currentStep = 1;
-
     function nextStep() {
       document.getElementById("step" + currentStep).classList.remove("active");
       currentStep++;
-      document.getElementById("step" + currentStep).classList.add("active");
+      const next = document.getElementById("step" + currentStep);
+      if (next) {
+        next.classList.add("active");
+      }
     }
 
     function showResult() {
@@ -148,12 +165,10 @@
       document.getElementById("result").style.display = "block";
     }
 
-    function irParaCheckout() {
-      // 🔽 INSIRA O LINK DO CHECKOUT AQUI 🔽
-      window.location.href = "https://pay.mundpay.com/01994dd9-74bb-72b2-b985-1a77ab1326c2?ref="; // <--- Substitua esse link pelo seu
+    function goToCheckout() {
+      window.location.href = "";
     }
 
-    // Destaque visual da opção selecionada
     const options = document.querySelectorAll("button.option");
     options.forEach(btn => {
       btn.addEventListener("click", () => {
@@ -165,4 +180,3 @@
   </script>
 </body>
 </html>
-
